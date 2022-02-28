@@ -7,7 +7,7 @@ server = SocketIO(app)
 
 @app.route("/")
 def index():
-    render_template("index.html")
+    return render_template("index.html")
 
 @app.route("/sendfile/<path:path>")
 def sendfile(path):
