@@ -7,7 +7,6 @@ div {
 
 button {
     width: 50%;
-    font-family: 'Courier New', Courier, monospace;
     padding: 12px 20px;
     box-sizing: border-box;
     margin: 8px 0;
@@ -29,4 +28,11 @@ button:hover {
 
 button:disabled {
     background-color: silver;
+}
+
+body {
+    background-color: aqua;
+    text-align: center;
+    padding: 1%; 
+    font-family: 'Courier New', Courier, monospace;
 }

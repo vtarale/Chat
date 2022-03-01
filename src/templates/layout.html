@@ -3,13 +3,7 @@
     <head>
         <meta name="viewport" content="initial-scale = 1, width=device-width">
         <title>Chat!</title>
-        <style>
-            body {
-                background-color: aqua;
-                text-align: center;
-                padding: 1%; 
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('sendfile', path='main.css') }}">
     </head>
     <body>
         {% block body %}{% endblock %}
