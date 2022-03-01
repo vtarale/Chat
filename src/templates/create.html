@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 {% block body %}
-    <h1>Setup room password</h1>
+    <script src="{{ url_for('sendfile', path='create/create.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('sendfile', path='main.css') }}">
+
+    <h1>Setup room</h1>
     <div>
-        <input id="password" autocapitalize="off" autofocus autocomplete="off" type="password" placeholder="Passsword">
-        <input id="repassword" autocapitalize="off" autocomplete="off" type="password" placeholder="Re-enter Password">
-        <br>
-        <button disabled>Create</button>
+        <button>Create</button>
     </div>
     <div>
         <label></label>

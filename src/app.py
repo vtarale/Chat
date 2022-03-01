@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, request, render_template, redirect, url_for, send_from_directory
 from flask_socketio import SocketIO
+from Enigma.enigma import encrpyt
+from random import randint
 
 app = Flask(__name__)
 app.secret_key = "ghdgjdfhgdfj"
@@ -33,4 +35,12 @@ def create():
 
 @app.route("/create_room")
 def create_room():
-    password = request.args.get("password")
+    chat_room = randint(1000, 5000000)
+    
+    while chat_room in chat_rooms_list:
+        chat_room = randint(1000, 5000000)
+
+    password = encrpyt('thanksforcreatingroom')
+    chat_rooms[chat_room] = [password, False]
+
+    return jsonify(f"Room:\n{chat_room}\nPassword:\n\t{password}")

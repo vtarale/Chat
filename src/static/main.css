@@ -16,6 +16,7 @@ button {
 }
 
 input {
+    width: 50%;
     text-align: center;
     background-color: darkgray;
     padding: 1%;
