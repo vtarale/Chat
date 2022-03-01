@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta name="viewport" content="initial-scale = 1, width=device-width">
-        <script src="{{ url_for('sendfile', path='index.js') }}"></script>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('sendfile', path='index.css') }}">
-        <title>Chat!</title>
-    </head>
-    <body>
-        <div>
-            <button id="roomcreator">Create room</button>
-            <br>
-            <br>
-            To join room:
-            <br>
-            <input autocapitalize="off" autofocus autocomplete="off" type="text" placeholder="Room id">
-            <br>
-            <button id="join" onclick="" disabled>Join</button>
-        </div>
-        <div>
-            <label></label>
-        </div>
-    </body>
-</html>
+{% extends "layout.html" %}
+{% block body %}
+    <script src="{{ url_for('sendfile', path='index/index.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('sendfile', path='index/index.css') }}">
+    <div>
+        <button id="roomcreator">Create room</button>
+        <br>
+        <br>
+        To join room:
+        <br>
+        <input autocapitalize="off" autofocus autocomplete="off" type="text" placeholder="Room id">
+        <br>
+        <button id="join" onclick="" disabled>Join</button>
+    </div>
+    <div>
+        <label></label>
+    </div>
+{% endblock %}
