@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 {% block body %}
     <div>
-        <input autocapitalize="off" autofocus autocomplete="off" type="password" placeholder="Passsword">
-        <input autocapitalize="off" autocomplete="off" type="password" placeholder="Re-enter Password">
+        <input id="password" autocapitalize="off" autofocus autocomplete="off" type="password" placeholder="Passsword">
+        <input id="repassword" autocapitalize="off" autocomplete="off" type="password" placeholder="Re-enter Password">
+        <br>
+        <button disabled>Create</button>
+    </div>
+    <div>
+        <label></label>
     </div>
 {% endblock %}
