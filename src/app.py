@@ -6,7 +6,7 @@ app.secret_key = "ghdgjdfhgdfj"
 server = SocketIO(app)
 
 chat_rooms  = dict()
-chat_rooms_list = ["1234"]
+chat_rooms_list = []
 
 @app.route("/")
 def index():
@@ -30,3 +30,7 @@ def room():
 @app.route("/create")
 def create():
     return render_template("create.html")
+
+@app.route("/create_room")
+def create_room():
+    password = request.args.get("password")

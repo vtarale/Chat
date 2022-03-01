@@ -26,4 +26,16 @@ document.addEventListener('DOMContentLoaded', function() {
             button.disabled = true;
         }
     });
+
+    button.addEventListener('click', async function() {
+        repsnose = await fetch('/create_room', {
+            method: POST,
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(password.value)
+        });
+        not_json = await response.json()
+        document.querySelector('label').innerHTML = '' + not_json;
+    });
 });
