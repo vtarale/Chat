@@ -29,4 +29,4 @@ def room():
 
 @app.route("/create")
 def create():
-    return "Todo"
+    return render_template("create.html")
