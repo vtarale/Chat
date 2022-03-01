@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     bjion.addEventListener('click', async function() {
         get = await fetch('/check?roomid=' + roomno.value);
-        not_jsonget = get.json()
+        not_jsonget = await get.json();
 
-        if (not_jsonget["check"] == 1){
-            window.location.replace("/room?" + roomno.value)
+        if (not_jsonget == 1){
+            window.location.replace("/room?" + roomno.value);
         } else {
             document.querySelector('label').innerHTML = 'No room found, 404';
         }
