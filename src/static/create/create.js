@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const button = document.querySelector('button');
+    const create = document.querySelector('#create');
+    const back = document.querySelector('#back');
 
-    button.addEventListener('click', async function() {
+    back.addEventListener('click', function() {
+        window.location.replace('/');
+    });
+
+    create.addEventListener('click', async function() {
         response = await fetch('/create_room');
         not_json = await response.json()
         document.querySelector('label').innerHTML = '' + not_json;

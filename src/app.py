@@ -22,7 +22,7 @@ def sendfile(path):
 @app.route("/check")
 def check():
     roomno = request.args.get("roomid")
-    if roomno in chat_rooms_list:
+    if str(roomno) in chat_rooms_list:
         return jsonify(1)
     return jsonify(0)
 
@@ -43,6 +43,6 @@ def create_room():
 
     password = encrpyt('thanksforcreatingroom')
     chat_rooms[chat_room] = [password, Chat()]
-    chat_rooms_list.append(chat_room)
+    chat_rooms_list.append(str(chat_room))
 
     return jsonify(f"Room:\n{chat_room}\nPassword:\n\t{password}")
