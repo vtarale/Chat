@@ -5,7 +5,7 @@ from random import randint
 from Chats.chat import Chat
 
 app = Flask(__name__)
-app.secret_key = "ghdgjdfhgdfj"
+app.config["SECERT_KEY"] = "ghdgjdfhgdfj"
 server = SocketIO(app)
 
 chat_rooms  = dict()
