@@ -30,9 +30,13 @@ def check():
 def room():
     return "Todo"
 
+@app.route("/room_password")
+def room_password():
+    return render_template("check_password.html")
+
 @app.route("/check_password")
 def check_password():
-    pass
+    password = request.args.get('password')
 
 @app.route("/create")
 def create():
