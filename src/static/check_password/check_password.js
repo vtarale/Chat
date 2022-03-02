@@ -13,12 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', async function() {
         get = new URLSearchParams(window.location.search);
         room = get.get('room');
+        n = get.get('name');
 
         get_check = await fetch('/check_password?password=' + password.value + '&roomid=' + room);
         not_json = await get_check.json()
 
         if (not_json == 1){
-            window.location.replace('/room?roomid=' + room);
+            window.location.replace('/room?roomid=' + room + '&name=' + n);
         } else {
             document.querySelector('label').innerHTML = 'Error';
         }

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         not_jsonget = await get.json();
 
         if (not_jsonget == 1){
-            window.location.replace("/room_password?room=" + roomno.value);
+            window.location.replace("/get_name?room=" + roomno.value);
         } else {
             document.querySelector('label').innerHTML = 'No room found, 404';
         }

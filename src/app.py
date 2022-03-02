@@ -28,7 +28,7 @@ def check():
 
 @app.route("/room")
 def room():
-    return "Todo"
+    return render_template("room.html")
 
 @app.route("/room_password")
 def room_password():
@@ -38,11 +38,15 @@ def room_password():
 def check_password():
     password = request.args.get('password')
     roomid = request.args.get('roomid')
-    realpassword, _ = chat_rooms[str(roomid)]
+    realpassword, _ , _ = chat_rooms[str(roomid)]
     
     if realpassword == password:
         return jsonify(1)
     return jsonify(0)
+
+@app.route('/get_name')
+def get_name():
+    return render_template("get_name.html")
 
 @app.route("/create")
 def create():
@@ -56,7 +60,7 @@ def create_room():
         chat_room = randint(1000, 5000000)
 
     password = encrpyt('thanksforcreatingroom')
-    chat_rooms[str(chat_room)] = [password, Chat()]
+    chat_rooms[str(chat_room)] = [password, Chat(), []]
     chat_rooms_list.append(str(chat_room))
 
     return jsonify(f"Room:\n{chat_room}\nPassword:\n\t{password}")

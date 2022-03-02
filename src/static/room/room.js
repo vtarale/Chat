@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     param = new URLSearchParams(window.location.search);
     room = param.get('room');
+    n = param.get('name');
 
     socket.on('connect', function() {
         socket.emit('join', {'roomid': room});
@@ -21,9 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         send.addEventListener('click', function() {
             socket.emit('mesaage', {'roomid': room,
-                                    'message': input.value});
+                                    'message': input.value,
+                                    'name': n});
+        });
+
+        leave.addEventListener('click', function() {
+            //todo
         });
     });
-
-    
 });
