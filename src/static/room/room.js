@@ -3,14 +3,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const input = document.querySelector('input');
     const list = document.querySelector('ul');
     const leave = document.querySelector('#leave');
-    var socket = io(location.protocol + '//' + document.domian + ':' + location.port);
+    console.log(document.domain);
+    var socket = io(location.protocol + '//' + document.domain + ':' + location.port);
 
     param = new URLSearchParams(window.location.search);
     room = param.get('room');
     n = param.get('name');
 
     socket.on('connect', function() {
-        socket.emit('join', {'roomid': room});
+        socket.emit('join', {'roomid': room, 'name': n});
 
         input.addEventListener('keyup', function() {
             if (input.value) {
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         send.addEventListener('click', function() {
-            socket.emit('mesaage', {'roomid': room,
+            socket.emit('message', {'roomid': room,
                                     'message': input.value,
                                     'name': n});
         });

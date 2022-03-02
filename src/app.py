@@ -6,7 +6,7 @@ from Chats.chat import Chat
 
 app = Flask(__name__)
 app.config["SECERT_KEY"] = "ghdgjdfhgdfj"
-server = SocketIO(app)
+socketio = SocketIO(app)
 
 chat_rooms  = dict()
 chat_rooms_list = []
@@ -64,3 +64,8 @@ def create_room():
     chat_rooms_list.append(str(chat_room))
 
     return jsonify(f"Room:\n{chat_room}\nPassword:\n\t{password}")
+
+@socketio.on("join")
+def join(data):
+    name = data["name"]
+    print(name)
