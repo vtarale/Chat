@@ -6,8 +6,12 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('sendfile', path='create/create.css') }}">
 
     <div>
+        <button class="leave" id="leave" disabled>Leave</button>
+    </div><br><br>
+
+    <div>
         <input autocapitalize="off" autofocus autocomplete="off" type="text" placeholder="Message">
-        <button disabled>Send</button>
+        <button id="send" disabled>Send</button>
     </div><br><br>
     <div class="iddiv">
         <ul>

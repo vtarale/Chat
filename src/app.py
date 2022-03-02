@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, render_template, url_for, send_from_directory
-from flask_socketio import SocketIO, join_room, leave_room
+from flask_socketio import SocketIO, join_room, leave_room, emit
 from Enigma.enigma import encrpyt
 from random import randint
 from Chats.chat import Chat
