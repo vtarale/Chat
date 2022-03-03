@@ -1,9 +1,14 @@
 # Chat
 An application where you can create private chat rooms and chat
 ## Quick start
+for on local host
 ```bash
 cd src
 flask run
+```
+or
+```bash
+flask run --host=0.0.0.0
 ```
 ## to create room
 click on create
