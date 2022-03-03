@@ -16,14 +16,13 @@ click on create
 ## updates
 will come after some time
 
-## docs
-[docs](https://github.com/vtarale/Chat/tree/main/docs)
-
 ## version
 1.0
 
 ## to join
   enter rommid, name and password
+## To know more
+[docs](https://github.com/vtarale/Chat/tree/main/docs)
 ## Enjoy
 ## Forkme
 [forkme](https://github.com/vtarale/Chat)
