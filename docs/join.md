@@ -11,3 +11,5 @@
   ![Screenshot 2022-03-03 191928](https://user-images.githubusercontent.com/66897674/156577633-8c8bb30c-389e-4880-8c78-cac9ac739eb1.png)
   type the **room's password** and click **on 'submit'**
 ## Done
+## To create room
+[create](https://github.com/vtarale/Chat/blob/main/docs/create.md)
