@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     const send = document.querySelector('#send');
     const input = document.querySelector('input');
     const list = document.querySelector('ul');
@@ -7,14 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     param = new URLSearchParams(window.location.search);
     room = param.get('room');
     n = param.get('name');
-    p = param.get('password');
-
-    get_check = await fetch('/check_password?password=' + password.value + '&roomid=' + room);
-    not_json = await get_check.json();
-
-    if (not_json != 1){
-        window.location.replace('/room_password?room=' + room + '&name=' + n);
-    }
 
     var socket = io(location.protocol + '//' + document.domain + ':' + location.port);
 
@@ -36,7 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         leave.addEventListener('click', function() {
-            //todo
+            socket.emit();
         });
+    });
+
+    socket.on('person', data => {
+        // todo
     });
 });

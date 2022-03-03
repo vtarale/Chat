@@ -28,7 +28,9 @@ def check():
 
 @app.route("/room")
 def room():
-    return render_template("room.html")
+    room = request.args.get("room")
+    _, chat, _ = chat_rooms[str(room)]
+    return render_template("room.html", messages=chat.chats)
 
 @app.route("/room_password")
 def room_password():
@@ -68,4 +70,18 @@ def create_room():
 @socketio.on("join")
 def join(data):
     name = data["name"]
-    print(name)
+    room = data["roomid"]
+    join_room(str(room))
+    _, chat, _ = chat_rooms[str(room)]
+    chat.add(f"{name} has joined")
+    emit("person", {"r": f"{name} has joined"}, to=str(room))
+
+@socketio.on("message")
+def mesaage(data):
+    room = data["id"]
+    name = data["name"]
+    message = data["message"]
+    string = str(name) + str(message)
+    _, chat, _ = chat_rooms[str(room)]
+    chat.add(string)
+    emit("new message", {"message": chat.chats}, to=str(room))

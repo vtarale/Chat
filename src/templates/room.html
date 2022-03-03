@@ -13,7 +13,9 @@
     </div><br><br>
     <div class="iddiv">
         <ul>
-
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
         </ul>
     </div>
 {% endblock %}
