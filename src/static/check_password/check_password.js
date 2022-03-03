@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
         n = get.get('name');
 
         get_check = await fetch('/check_password?password=' + password.value + '&roomid=' + room);
-        not_json = await get_check.json()
+        not_json = await get_check.json();
 
         if (not_json == 1){
-            window.location.replace('/room?roomid=' + room + '&name=' + n);
+            window.location.replace('/room?roomid=' + room + '&name=' + n + '&password=' + password.value);
         } else {
             document.querySelector('label').innerHTML = 'Error';
         }

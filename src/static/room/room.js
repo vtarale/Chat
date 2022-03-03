@@ -3,12 +3,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const input = document.querySelector('input');
     const list = document.querySelector('ul');
     const leave = document.querySelector('#leave');
-    console.log(document.domain);
     var socket = io(location.protocol + '//' + document.domain + ':' + location.port);
 
     param = new URLSearchParams(window.location.search);
     room = param.get('room');
     n = param.get('name');
+    p = param.get('password');
+
+    get_check = await fetch('/check_password?password=' + password.value + '&roomid=' + room);
+    not_json = await get_check.json();
+
+    if (not_json != 1){
+            window.location.replace('/room_password?room=' + room + '&name=' + n);
+    }
 
     socket.on('connect', function() {
         socket.emit('join', {'roomid': room, 'name': n});
