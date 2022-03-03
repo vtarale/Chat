@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     not_json = await get_check.json();
 
     if (not_json != 1){
-            window.location.replace('/room_password?room=' + room + '&name=' + n);
+        window.location.replace('/room_password?room=' + room + '&name=' + n);
     }
 
     socket.on('connect', function() {
