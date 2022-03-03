@@ -28,7 +28,7 @@ def check():
 
 @app.route("/room")
 def room():
-    room = request.args.get("room")
+    room = request.args.get("roomid")
     _, chat, _ = chat_rooms[str(room)]
     return render_template("room.html", messages=chat.chats)
 
@@ -74,7 +74,7 @@ def join(data):
     join_room(str(room))
     _, chat, _ = chat_rooms[str(room)]
     chat.add(f"{name} has joined")
-    emit("person", {"r": f"{name} has joined"}, to=str(room))
+    emit("person", {"r": chat.chats}, to=str(room))
 
 @socketio.on("message")
 def mesaage(data):

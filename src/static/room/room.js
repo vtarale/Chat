@@ -5,10 +5,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     const leave = document.querySelector('#leave');
 
     param = new URLSearchParams(window.location.search);
-    room = param.get('room');
+    room = param.get('roomid');
     n = param.get('name');
+    p = param.get('password')
 
-    get_check = await fetch('/check_password?password=' + password.value + '&roomid=' + room);
+    get_check = await fetch('/check_password?password=' + p + '&roomid=' + room);
     not_json = await get_check.json();
 
     if (not_json == 1){
