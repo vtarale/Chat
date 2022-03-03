@@ -8,31 +8,38 @@ document.addEventListener('DOMContentLoaded', async function() {
     room = param.get('room');
     n = param.get('name');
 
-    var socket = io(location.protocol + '//' + document.domain + ':' + location.port);
+    get_check = await fetch('/check_password?password=' + password.value + '&roomid=' + room);
+    not_json = await get_check.json();
 
-    socket.on('connect', function() {
-        socket.emit('join', {'roomid': room, 'name': n});
+    if (not_json == 1){
+        var socket = io(location.protocol + '//' + document.domain + ':' + location.port);
 
-        input.addEventListener('keyup', function() {
-            if (input.value) {
-                send.disabled = false;
-            } else {
-                send.disabled = true;
-            }
+        socket.on('connect', function() {
+            socket.emit('join', {'roomid': room, 'name': n});
+
+            input.addEventListener('keyup', function() {
+                if (input.value) {
+                    send.disabled = false;
+                } else {
+                    send.disabled = true;
+                }
+            });
+
+            send.addEventListener('click', function() {
+                socket.emit('message', {'roomid': room,
+                                        'message': input.value,
+                                        'name': n});
+            });
+
+            leave.addEventListener('click', function() {
+                socket.emit();
+            });
         });
 
-        send.addEventListener('click', function() {
-            socket.emit('message', {'roomid': room,
-                                    'message': input.value,
-                                    'name': n});
+        socket.on('person', data => {
+            // todo
         });
-
-        leave.addEventListener('click', function() {
-            socket.emit();
-        });
-    });
-
-    socket.on('person', data => {
-        // todo
-    });
+    } else {
+        window.location.replace('/room_password?room=' + room + '&name=' + n);
+    }
 });
