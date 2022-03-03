@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const input = document.querySelector('input');
     const list = document.querySelector('ul');
     const leave = document.querySelector('#leave');
+    let l = 0;
 
     param = new URLSearchParams(window.location.search);
     room = param.get('roomid');
@@ -33,12 +34,22 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
 
             leave.addEventListener('click', function() {
-                socket.emit();
+                socket.emit('leave', {'roomid': room,
+                                      'name': n});
+                window.location.replace('/');
             });
         });
 
         socket.on('person', data => {
-            // todo
+            list.innerHTML = data.r;
+        });
+
+        socket.on('new message', data => {
+            list.innerHTML = data.message;
+        });
+
+        socket.on('left', data => {
+            list.innerHTML = data.r;
         });
     } else {
         window.location.replace('/room_password?room=' + room + '&name=' + n);

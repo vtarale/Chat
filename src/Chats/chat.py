@@ -7,7 +7,7 @@ class Chat:
         self.chats.append(message)
 
     def add(self, message):
-        if len(self.chats) < 10:
+        if len(self.chats) > 10:
             self.move(message)
             return
         self.chats.append(message)

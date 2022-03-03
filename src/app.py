@@ -74,14 +74,32 @@ def join(data):
     join_room(str(room))
     _, chat, _ = chat_rooms[str(room)]
     chat.add(f"{name} has joined")
-    emit("person", {"r": chat.chats}, to=str(room))
+    mes = ''
+    for message in chat.chats:
+        mes = mes + '<li>' + message + '</li>'
+    emit("person", {"r": mes}, to=str(room))
 
 @socketio.on("message")
-def mesaage(data):
-    room = data["id"]
+def message(data):
+    room = data["roomid"]
     name = data["name"]
     message = data["message"]
-    string = str(name) + str(message)
+    string = str(name) + ':' + str(message)
     _, chat, _ = chat_rooms[str(room)]
     chat.add(string)
-    emit("new message", {"message": chat.chats}, to=str(room))
+    mes = ''
+    for message in chat.chats:
+        mes = mes + '<li>' + message + '</li>'
+    emit("new message", {"message": mes}, to=str(room))
+
+@socketio.on("leave")
+def leave(data):
+    name = data["name"]
+    room = data["roomid"]
+    _, chat, _ = chat_rooms[str(room)]
+    chat.add(f"{name} has left")
+    leave_room(str(room))
+    mes = ''
+    for message in chat.chats:
+        mes = mes + '<li>' + message + '</li>'
+    emit("left", {"r": mes}, to=str(room))
