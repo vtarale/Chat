@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (not_json == 1){
             window.location.replace('/room?roomid=' + room + '&name=' + n + '&password=' + password.value);
         } else {
+            password.value = ""
             document.querySelector('label').innerHTML = 'Error';
         }
     });

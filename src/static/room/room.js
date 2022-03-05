@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 socket.emit('message', {'roomid': room,
                                         'message': input.value,
                                         'name': n});
+                input.value = ""
             });
 
             leave.addEventListener('click', function() {

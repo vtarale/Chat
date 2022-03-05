@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (not_jsonget == 1){
             window.location.replace("/get_name?room=" + roomno.value);
         } else {
+            roomno.value = ""
             document.querySelector('label').innerHTML = 'No room found, 404';
         }
     });
