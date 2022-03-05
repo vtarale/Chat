@@ -16,7 +16,7 @@ flask run --host=0.0.0.0
 ## updates
 will come after some time
 ## version
-**v1.0**
+**v1.1 beta**
 ## To know more
 [docs](https://github.com/vtarale/Chat/tree/main/docs)
 ## Enjoy
