@@ -2,7 +2,6 @@
 An application where you can create private chat rooms and chat.
 ######
 These chat rooms help you take with different people.
-
 ## Quick start
 for on local host
 ```bash
@@ -14,7 +13,8 @@ or
 flask run --host=0.0.0.0
 ```
 ## updates
-will come after some time
+version 2 starting now
+version 2 under progress
 ## version
 **v1.1**
 ## To know more
